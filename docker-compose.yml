@@ -1,5 +1,5 @@
 networks:
-  nework:
+  network:
 
 services:
 
@@ -13,8 +13,7 @@ services:
       REDIS_URI: redis://redis:6379
       ENABLE_WRITING_HANDLERS: 'false'
     networks:
-      - mongodb-network
-      - redis-network
+      - network
     depends_on:
       - mongodb
       - redis
