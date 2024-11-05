@@ -59,3 +59,16 @@ services:
       - express-network
     depends_on:
       - mongodb
+
+  seeder:
+    container_name: seeder
+    build:
+      context: .
+      dockerfile: Dockerfile-seeder
+    restart: always
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://admin:secret@mongodb:27017 
+    networks:
+      - mongodb-network

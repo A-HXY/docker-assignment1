@@ -1,0 +1,15 @@
+FROM node:20
+
+WORKDIR /app
+
+COPY package*.json ./
+
+COPY seeding.json ./
+
+COPY model/ ./model
+
+RUN npm install
+
+COPY seeder.js .
+
+CMD ["node", "seeder.js"]
